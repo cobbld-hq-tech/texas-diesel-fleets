@@ -304,7 +304,7 @@ export default function BookingPage() {
       {/* NAV */}
       <header
         style={css(
-          "position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--panel) 96%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.08)"
+          "position:relative;z-index:60;background:var(--panel);border-bottom:1px solid rgba(255,255,255,0.08)"
         )}
       >
         <nav
