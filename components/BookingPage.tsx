@@ -298,13 +298,13 @@ export default function BookingPage() {
       data-palette={paletteAttr}
       className="tdf-root"
       style={css(
-        "max-width:100%;overflow-x:hidden;background-color:var(--bg);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0.013) 0 1px,transparent 1px 4px),radial-gradient(circle at 30% 20%,rgba(0,0,0,0.016) 0 1px,transparent 2px),radial-gradient(circle at 70% 65%,rgba(0,0,0,0.013) 0 1px,transparent 2px);background-size:auto,11px 11px,17px 17px"
+        "max-width:100%;overflow-x:clip;background-color:var(--bg);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0.013) 0 1px,transparent 1px 4px),radial-gradient(circle at 30% 20%,rgba(0,0,0,0.016) 0 1px,transparent 2px),radial-gradient(circle at 70% 65%,rgba(0,0,0,0.013) 0 1px,transparent 2px);background-size:auto,11px 11px,17px 17px"
       )}
     >
       {/* NAV */}
       <header
         style={css(
-          "position:relative;z-index:60;background:var(--panel);border-bottom:1px solid rgba(255,255,255,0.08)"
+          "position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--panel) 96%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.08)"
         )}
       >
         <nav
