@@ -375,6 +375,58 @@ export default function BookingPage() {
                 Book Service
               </a>
             </div>
+            {/* Compact icon actions — mobile only (replaces the bottom CTA bar) */}
+            <div
+              className="tdf-mobile-actions"
+              style={css("display:none;align-items:center;gap:12px")}
+            >
+              <a
+                href="tel:+18005550199"
+                aria-label="Call the shop"
+                style={css(
+                  "flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);display:grid;place-items:center;color:#fff"
+                )}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </a>
+              <a
+                href="#book"
+                aria-label="Book a service bay"
+                style={css(
+                  "flex:none;width:42px;height:42px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff"
+                )}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                  <path d="m9 16 2 2 4-4" />
+                </svg>
+              </a>
+            </div>
           </div>
         </nav>
       </header>
@@ -1691,30 +1743,6 @@ export default function BookingPage() {
         </div>
       </footer>
 
-      {/* STICKY MOBILE CTA */}
-      <div
-        className="tdf-mobile-cta"
-        style={css(
-          "display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--panel-3);border-top:1px solid rgba(255,255,255,0.1);box-shadow:0 -6px 20px rgba(0,0,0,0.35)"
-        )}
-      >
-        <a
-          href="tel:+18005550199"
-          style={css(
-            "flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:16px;color:#fff;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,0.12)"
-          )}
-        >
-          Call shop
-        </a>
-        <a
-          href="#book"
-          style={css(
-            "flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:16px;background:var(--brand);color:#fff;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:0.06em;text-transform:uppercase"
-          )}
-        >
-          Book a bay
-        </a>
-      </div>
     </div>
   );
 }

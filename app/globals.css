@@ -81,8 +81,7 @@ a{color:inherit;text-decoration:none}
   .tdf-ticket{position:static !important;top:auto !important}
   .tdf-footer-grid{grid-template-columns:1fr !important;gap:32px !important}
   .tdf-find-grid{grid-template-columns:1fr !important}
-  .tdf-mobile-cta{display:flex !important}
-  .tdf-root{padding-bottom:64px !important}
+  .tdf-mobile-actions{display:flex !important}
 }
 @media (max-width:560px){
   .tdf-hero-h1{font-size:38px !important}
