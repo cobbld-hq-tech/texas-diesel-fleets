@@ -548,14 +548,14 @@ export default function BookingPage() {
         >
           <div
             style={css(
-              "position:absolute;top:0;left:14px;right:14px;height:64px;display:flex;gap:8px;padding:14px 24px;background:repeating-linear-gradient(180deg,#3c434c 0 10px,#2a2f37 10px 12px)"
+              "position:absolute;top:0;left:0;right:0;height:64px;display:flex;gap:8px;padding:14px 8px;background:repeating-linear-gradient(180deg,#3c434c 0 10px,#2a2f37 10px 12px)"
             )}
           >
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
                 style={css(
-                  "flex:1;background:linear-gradient(160deg,rgba(170,210,230,0.5),rgba(90,130,160,0.25));border:2px solid #1c2127"
+                  "flex:1;background:linear-gradient(160deg,#8fa7b6,#4a5b67);border:2px solid #1c2127;box-shadow:inset 0 1px 2px rgba(255,255,255,0.35),inset 0 -2px 4px rgba(0,0,0,0.3)"
                 )}
               />
             ))}
