@@ -301,6 +301,9 @@ export default function BookingPage() {
         "max-width:100%;overflow-x:clip;background-color:var(--bg);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0.013) 0 1px,transparent 1px 4px),radial-gradient(circle at 30% 20%,rgba(0,0,0,0.016) 0 1px,transparent 2px),radial-gradient(circle at 70% 65%,rgba(0,0,0,0.013) 0 1px,transparent 2px);background-size:auto,11px 11px,17px 17px"
       )}
     >
+      <a href="#top" className="tdf-skip">
+        Skip to content
+      </a>
       {/* NAV */}
       <header
         style={css(
@@ -354,6 +357,7 @@ export default function BookingPage() {
                 <a
                   key={href}
                   href={href}
+                  className="tdf-navlink"
                   style={css(
                     "font-size:14px;font-weight:500;color:#c6d2de;letter-spacing:0.02em"
                   )}
@@ -368,6 +372,7 @@ export default function BookingPage() {
             >
               <a
                 href="#book"
+                className="tdf-cta"
                 style={css(
                   "background:var(--brand);color:#fff;font-family:'Oswald';font-weight:600;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 22px"
                 )}
@@ -383,6 +388,7 @@ export default function BookingPage() {
               <a
                 href="tel:+18005550199"
                 aria-label="Call the shop"
+                className="tdf-iconbtn"
                 style={css(
                   "flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);display:grid;place-items:center;color:#fff"
                 )}
@@ -404,6 +410,7 @@ export default function BookingPage() {
               <a
                 href="#book"
                 aria-label="Book a service bay"
+                className="tdf-iconbtn"
                 style={css(
                   "flex:none;width:42px;height:42px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff"
                 )}
@@ -486,6 +493,7 @@ export default function BookingPage() {
             <div style={css("display:flex;gap:16px;flex-wrap:wrap")}>
               <a
                 href="#book"
+                className="tdf-cta"
                 style={css(
                   "background:var(--brand);color:#fff;font-family:'Oswald';font-weight:600;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;padding:16px 30px"
                 )}
@@ -494,6 +502,7 @@ export default function BookingPage() {
               </a>
               <a
                 href="#diagnostic"
+                className="tdf-ghost"
                 style={css(
                   "border:1px solid rgba(255,255,255,0.28);color:#fff;font-family:'Oswald';font-weight:500;font-size:16px;letter-spacing:0.06em;text-transform:uppercase;padding:16px 30px"
                 )}
@@ -836,6 +845,9 @@ export default function BookingPage() {
                   <button
                     key={h.key}
                     type="button"
+                    className="tdf-hotspot"
+                    aria-label={"Show " + SYSTEMS[h.key].label + " details"}
+                    aria-pressed={h.key === selectedSystem}
                     onClick={() => setSelectedSystem(h.key)}
                     style={css(h.dotStyle)}
                   >
@@ -882,6 +894,7 @@ export default function BookingPage() {
               </p>
               <a
                 href="#book"
+                className="tdf-cta"
                 onClick={() => setServiceNeeded(sys.svc)}
                 style={css(
                   "margin-top:auto;text-align:center;background:var(--brand);color:#fff;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:0.07em;text-transform:uppercase;padding:15px 20px"
@@ -1243,10 +1256,18 @@ export default function BookingPage() {
             {/* BUILDER */}
             <div>
               {!submitted && (
-                <div style={css("display:flex;flex-direction:column;gap:20px")}>
+                <form
+                  noValidate
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    submit();
+                  }}
+                  style={css("display:flex;flex-direction:column;gap:20px")}
+                >
                   <div style={css("display:grid;grid-template-columns:1fr 1fr;gap:16px")}>
                     <div>
                       <label
+                        htmlFor="bk-first"
                         style={css(
                           "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                         )}
@@ -1254,8 +1275,13 @@ export default function BookingPage() {
                         First name
                       </label>
                       <input
+                        id="bk-first"
                         type="text"
+                        autoComplete="given-name"
                         placeholder="Dale"
+                        className="tdf-input"
+                        aria-invalid={errors.firstName ? true : undefined}
+                        aria-describedby={errors.firstName ? "bk-first-err" : undefined}
                         value={firstName}
                         onChange={(e) => {
                           setFirstName(e.target.value);
@@ -1265,6 +1291,7 @@ export default function BookingPage() {
                       />
                       {errors.firstName && (
                         <div
+                          id="bk-first-err"
                           style={css(
                             "font-family:'IBM Plex Mono';font-size:11px;color:#c0392b;margin-top:6px;letter-spacing:0.03em"
                           )}
@@ -1275,6 +1302,7 @@ export default function BookingPage() {
                     </div>
                     <div>
                       <label
+                        htmlFor="bk-last"
                         style={css(
                           "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                         )}
@@ -1282,8 +1310,11 @@ export default function BookingPage() {
                         Last name
                       </label>
                       <input
+                        id="bk-last"
                         type="text"
+                        autoComplete="family-name"
                         placeholder="Bishop"
+                        className="tdf-input"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         style={css(INPUT_BASE)}
@@ -1292,6 +1323,7 @@ export default function BookingPage() {
                   </div>
                   <div>
                     <label
+                      htmlFor="bk-phone"
                       style={css(
                         "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                       )}
@@ -1299,8 +1331,13 @@ export default function BookingPage() {
                       Phone number
                     </label>
                     <input
+                      id="bk-phone"
                       type="tel"
+                      autoComplete="tel"
                       placeholder="(512) 555-0148"
+                      className="tdf-input"
+                      aria-invalid={errors.phone ? true : undefined}
+                      aria-describedby={errors.phone ? "bk-phone-err" : undefined}
                       value={phone}
                       onChange={(e) => {
                         setPhone(formatPhone(e.target.value));
@@ -1310,6 +1347,7 @@ export default function BookingPage() {
                     />
                     {errors.phone && (
                       <div
+                        id="bk-phone-err"
                         style={css(
                           "font-family:'IBM Plex Mono';font-size:11px;color:#c0392b;margin-top:6px;letter-spacing:0.03em"
                         )}
@@ -1320,6 +1358,7 @@ export default function BookingPage() {
                   </div>
                   <div>
                     <label
+                      htmlFor="bk-service"
                       style={css(
                         "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                       )}
@@ -1327,6 +1366,12 @@ export default function BookingPage() {
                       Service needed
                     </label>
                     <select
+                      id="bk-service"
+                      className="tdf-input"
+                      aria-invalid={errors.serviceNeeded ? true : undefined}
+                      aria-describedby={
+                        errors.serviceNeeded ? "bk-service-err" : undefined
+                      }
                       value={serviceNeeded}
                       onChange={(e) => {
                         setServiceNeeded(e.target.value);
@@ -1341,6 +1386,7 @@ export default function BookingPage() {
                     </select>
                     {errors.serviceNeeded && (
                       <div
+                        id="bk-service-err"
                         style={css(
                           "font-family:'IBM Plex Mono';font-size:11px;color:#c0392b;margin-top:6px;letter-spacing:0.03em"
                         )}
@@ -1352,6 +1398,7 @@ export default function BookingPage() {
                   <div style={css("display:grid;grid-template-columns:130px 1fr;gap:16px")}>
                     <div>
                       <label
+                        htmlFor="bk-year"
                         style={css(
                           "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                         )}
@@ -1359,9 +1406,11 @@ export default function BookingPage() {
                         Year
                       </label>
                       <input
+                        id="bk-year"
                         type="text"
                         inputMode="numeric"
                         placeholder="2019"
+                        className="tdf-input"
                         value={year}
                         onChange={(e) => setYear(e.target.value)}
                         style={css(INPUT_BASE)}
@@ -1369,6 +1418,7 @@ export default function BookingPage() {
                     </div>
                     <div>
                       <label
+                        htmlFor="bk-makemodel"
                         style={css(
                           "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                         )}
@@ -1376,8 +1426,10 @@ export default function BookingPage() {
                         Make &amp; model
                       </label>
                       <input
+                        id="bk-makemodel"
                         type="text"
                         placeholder="Peterbilt 579"
+                        className="tdf-input"
                         value={makeModel}
                         onChange={(e) => setMakeModel(e.target.value)}
                         style={css(INPUT_BASE)}
@@ -1386,6 +1438,7 @@ export default function BookingPage() {
                   </div>
                   <div>
                     <label
+                      htmlFor="bk-issue"
                       style={css(
                         "display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--panel);margin-bottom:8px"
                       )}
@@ -1393,8 +1446,10 @@ export default function BookingPage() {
                       Describe the issue
                     </label>
                     <textarea
+                      id="bk-issue"
                       rows={4}
                       placeholder="Low power under load, check-engine light, coolant leak…"
+                      className="tdf-input"
                       value={issue}
                       onChange={(e) => setIssue(e.target.value)}
                       style={css(
@@ -1403,15 +1458,15 @@ export default function BookingPage() {
                     />
                   </div>
                   <button
-                    type="button"
-                    onClick={submit}
+                    type="submit"
+                    className="tdf-submit"
                     style={css(
                       "width:100%;background:var(--brand);color:#fff;font-family:'Oswald';font-weight:600;font-size:18px;letter-spacing:0.08em;text-transform:uppercase;padding:18px;border:none;cursor:pointer;box-shadow:0 6px 0 var(--brand-dark)"
                     )}
                   >
                     Request service →
                   </button>
-                </div>
+                </form>
               )}
 
               {submitted && (
@@ -1493,6 +1548,7 @@ export default function BookingPage() {
                     <button
                       type="button"
                       onClick={reset}
+                      className="tdf-ghost"
                       style={css(
                         "margin-top:8px;background:none;border:1px solid rgba(255,255,255,0.4);color:#fff;font-family:'Oswald';font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;padding:13px 24px;cursor:pointer"
                       )}
@@ -1648,6 +1704,7 @@ export default function BookingPage() {
                 href="https://maps.google.com/?q=3800+W+Industrial+Ave,+Midland,+TX+79701"
                 target="_blank"
                 rel="noopener"
+                className="tdf-cta"
                 style={css(
                   "margin-top:auto;text-align:center;background:var(--brand);color:#fff;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:0.07em;text-transform:uppercase;padding:15px 20px"
                 )}
@@ -1660,7 +1717,7 @@ export default function BookingPage() {
       </section>
 
       {/* FOOTER */}
-      <footer style={css("background:var(--panel-3);color:#bcccdb")}>
+      <footer className="tdf-foot" style={css("background:var(--panel-3);color:#bcccdb")}>
         <div
           className="tdf-footer-grid"
           style={css(
