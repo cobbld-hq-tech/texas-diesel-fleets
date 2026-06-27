@@ -295,13 +295,13 @@ export default function BookingPage() {
 
   return (
     <div
-      id="page-top"
       data-palette={paletteAttr}
       className="tdf-root"
       style={css(
         "max-width:100%;overflow-x:clip;background-color:var(--bg);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,0.013) 0 1px,transparent 1px 4px),radial-gradient(circle at 30% 20%,rgba(0,0,0,0.016) 0 1px,transparent 2px),radial-gradient(circle at 70% 65%,rgba(0,0,0,0.013) 0 1px,transparent 2px);background-size:auto,11px 11px,17px 17px"
       )}
     >
+      <span id="page-top" aria-hidden="true" style={css("display:block;height:0")} />
       <a href="#top" className="tdf-skip">
         Skip to content
       </a>
@@ -317,7 +317,20 @@ export default function BookingPage() {
             "max-width:1240px;margin:0 auto;padding:0 32px;height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px"
           )}
         >
-          <a href="#page-top" style={css("display:flex;align-items:center;gap:12px")}>
+          <a
+            href="#page-top"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                  .matches
+                  ? "auto"
+                  : "smooth",
+              });
+            }}
+            style={css("display:flex;align-items:center;gap:12px")}
+          >
             <svg
               width="38"
               height="38"
