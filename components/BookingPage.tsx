@@ -317,17 +317,23 @@ export default function BookingPage() {
           )}
         >
           <a href="#top" style={css("display:flex;align-items:center;gap:12px")}>
-            <span
-              style={css(
-                "width:38px;height:38px;border:2px solid var(--brand);display:grid;place-items:center;flex:none"
-              )}
+            <svg
+              width="38"
+              height="38"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              style={css("flex:none;fill:var(--brand)")}
             >
-              <span
-                style={css(
-                  "width:14px;height:14px;background:var(--brand);transform:rotate(45deg)"
-                )}
-              />
-            </span>
+              <rect width="32" height="32" rx="5" style={css("fill:var(--panel-3)")} />
+              <circle cx="16" cy="16" r="12.3" />
+              <circle cx="16" cy="16" r="9.6" style={css("fill:var(--panel-3)")} />
+              <rect x="11.7" y="8.8" width="8.6" height="5.4" rx="1" />
+              <rect x="11.7" y="10.6" width="8.6" height="0.7" style={css("fill:var(--panel-3)")} />
+              <rect x="11.7" y="12" width="8.6" height="0.7" style={css("fill:var(--panel-3)")} />
+              <polygon points="13.4,14.2 18.6,14.2 17.7,19.6 14.3,19.6" />
+              <circle cx="16" cy="20.6" r="2.6" />
+              <circle cx="16" cy="20.6" r="1.1" style={css("fill:var(--panel-3)")} />
+            </svg>
             <span style={css("display:flex;flex-direction:column;line-height:1")}>
               <span
                 style={css(
@@ -1726,17 +1732,22 @@ export default function BookingPage() {
         >
           <div>
             <div style={css("display:flex;align-items:center;gap:12px;margin-bottom:18px")}>
-              <span
-                style={css(
-                  "width:34px;height:34px;border:2px solid var(--brand);display:grid;place-items:center"
-                )}
+              <svg
+                width="34"
+                height="34"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                style={css("flex:none;fill:var(--brand)")}
               >
-                <span
-                  style={css(
-                    "width:12px;height:12px;background:var(--brand);transform:rotate(45deg)"
-                  )}
-                />
-              </span>
+                <circle cx="16" cy="16" r="12.3" />
+                <circle cx="16" cy="16" r="9.6" style={css("fill:var(--panel-3)")} />
+                <rect x="11.7" y="8.8" width="8.6" height="5.4" rx="1" />
+                <rect x="11.7" y="10.6" width="8.6" height="0.7" style={css("fill:var(--panel-3)")} />
+                <rect x="11.7" y="12" width="8.6" height="0.7" style={css("fill:var(--panel-3)")} />
+                <polygon points="13.4,14.2 18.6,14.2 17.7,19.6 14.3,19.6" />
+                <circle cx="16" cy="20.6" r="2.6" />
+                <circle cx="16" cy="20.6" r="1.1" style={css("fill:var(--panel-3)")} />
+              </svg>
               <span
                 style={css(
                   "font-family:'Oswald';font-weight:700;font-size:18px;letter-spacing:0.06em;color:#fff;text-transform:uppercase"
