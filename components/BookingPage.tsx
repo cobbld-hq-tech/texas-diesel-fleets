@@ -454,13 +454,13 @@ export default function BookingPage() {
         <div
           aria-hidden="true"
           style={css(
-            "position:absolute;top:0;bottom:0;left:0;width:14px;background:linear-gradient(90deg,var(--panel-3),#1c4260);z-index:4"
+            "position:absolute;top:0;bottom:0;left:0;width:14px;background:linear-gradient(90deg,#21262d,#3c434c);z-index:4"
           )}
         />
         <div
           aria-hidden="true"
           style={css(
-            "position:absolute;top:0;bottom:0;right:0;width:14px;background:linear-gradient(270deg,var(--panel-3),#1c4260);z-index:4"
+            "position:absolute;top:0;bottom:0;right:0;width:14px;background:linear-gradient(270deg,#21262d,#3c434c);z-index:4"
           )}
         />
 
