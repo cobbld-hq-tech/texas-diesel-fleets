@@ -3,6 +3,39 @@ html{scroll-behavior:smooth}
 body{font-family:'IBM Plex Sans',system-ui,sans-serif;color:#16202b;background:var(--bg);-webkit-font-smoothing:antialiased}
 ::selection{background:var(--brand);color:#fff}
 a{color:inherit;text-decoration:none}
+
+/* ---- Interactive states (hover / active / focus) ----
+   Base look lives in inline styles, so these overrides use !important,
+   matching the pattern already used by the responsive rules below. */
+.tdf-cta,.tdf-ghost,.tdf-navlink,.tdf-input,.tdf-hotspot,.tdf-iconbtn,
+.tdf-foot a,.tdf-submit{transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .12s ease}
+.tdf-cta:hover{background:var(--brand-dark) !important;transform:translateY(-2px)}
+.tdf-cta:active{transform:translateY(1px)}
+.tdf-ghost:hover{background:rgba(255,255,255,0.1) !important;border-color:rgba(255,255,255,0.55) !important}
+.tdf-ghost:active{transform:translateY(1px)}
+.tdf-navlink:hover{color:#fff !important}
+.tdf-iconbtn:hover{transform:translateY(-2px)}
+.tdf-iconbtn:active{transform:translateY(1px)}
+.tdf-hotspot:hover{transform:translate(-50%,-50%) scale(1.12) !important}
+.tdf-foot a:hover{color:#fff !important}
+.tdf-input:hover{border-color:#9c9483 !important}
+.tdf-input:focus{outline:none;border-color:var(--brand-ring) !important;box-shadow:0 0 0 3px color-mix(in srgb,var(--brand-ring) 28%,transparent) !important}
+.tdf-submit{box-shadow:0 6px 0 var(--brand-dark)}
+.tdf-submit:hover{background:var(--brand-dark) !important}
+.tdf-submit:active{transform:translateY(4px);box-shadow:0 2px 0 var(--brand-dark) !important}
+
+/* Visible keyboard focus for every interactive element */
+.tdf-root a:focus-visible,.tdf-root button:focus-visible,
+.tdf-root input:focus-visible,.tdf-root select:focus-visible,
+.tdf-root textarea:focus-visible,.tdf-skip:focus-visible{
+  outline:3px solid var(--accent);outline-offset:3px;border-radius:1px}
+
+/* Skip-to-content link — hidden until focused */
+.tdf-skip{position:absolute;left:16px;top:-60px;z-index:200;background:var(--brand);color:#fff;
+  font-family:'Oswald';font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;
+  padding:12px 20px;transition:top .2s ease}
+.tdf-skip:focus{top:16px}
+
 :root{
   --panel:#0f2942;--panel-2:#0a2233;--panel-3:#0a1c2e;
   --brand:#9c2a2a;--brand-dark:#6f1c1c;--brand-ring:#b3262b;
