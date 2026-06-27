@@ -295,6 +295,7 @@ export default function BookingPage() {
 
   return (
     <div
+      id="page-top"
       data-palette={paletteAttr}
       className="tdf-root"
       style={css(
@@ -316,7 +317,7 @@ export default function BookingPage() {
             "max-width:1240px;margin:0 auto;padding:0 32px;height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px"
           )}
         >
-          <a href="#top" style={css("display:flex;align-items:center;gap:12px")}>
+          <a href="#page-top" style={css("display:flex;align-items:center;gap:12px")}>
             <svg
               width="38"
               height="38"
